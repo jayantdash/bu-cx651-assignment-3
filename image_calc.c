@@ -16,8 +16,14 @@ int main(int argc, char** argv){
         return -1;
     }
 
+    char* barcode_value = argv[1];
+    int width = atoi(argv[2]);
+    int height = atoi(argv[3]);
+    char* output_filepath = argv[4];
 
     // TODO: call barcode
+    struct image* img = barcode(barcode_value, width, height);
     
     // TODO: save result to file
+    saveimage(output_filepath, img);
 }
