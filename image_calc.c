@@ -24,6 +24,16 @@ int main(int argc, char** argv){
     // TODO: call barcode
     struct image* img = barcode(barcode_value, width, height);
     
+    if (img == NULL) {
+        printf("Failed to generate barcode image.\n");
+        return -1;
+    }
+
     // TODO: save result to file
     saveimage(output_filepath, img);
+    
+    free(img->pixels);
+    free(img);
+    
+    return 0;
 }
